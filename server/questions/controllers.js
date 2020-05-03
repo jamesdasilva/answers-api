@@ -29,4 +29,17 @@ questionsController.post = (req, res) => {
   });
 }
 
+questionsController.getAll = (req, res) => {
+  Question.find({}).then((questions) => {
+    return res.status(200).json({
+      success: true,
+      data: questions,
+    });
+  }).catch((err) => {
+    return res.status(500).json({
+      message: err
+    });
+  });
+}
+
 module.exports = questionsController;

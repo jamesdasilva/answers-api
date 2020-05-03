@@ -4,9 +4,7 @@ const questionsController = require('./controllers');
 
 const questionsRoutes = express();
 
-questionsRoutes.get('/', (req, res) => {
-  res.json({ "req": "Não tem" });
-});
+questionsRoutes.get('/', questionsController.getAll);
 
 questionsRoutes.get('/:id', (req, res) => {
   res.json({ "req": "Não tem" });
