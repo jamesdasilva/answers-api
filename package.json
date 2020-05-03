@@ -2,11 +2,11 @@
   "name": "answers-api",
   "version": "1.0.0",
   "description": "API de perguntas e respostas",
-  "main": "index.js",
+  "main": "./server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "up": "sudo docker-compose up",
-    "start": "nodemon -L --watch . index.js"
+    "start": "nodemon -L --watch . ./server/index.js"
   },
   "repository": {
     "type": "git",
