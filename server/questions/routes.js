@@ -6,14 +6,12 @@ const questionsRoutes = express();
 
 questionsRoutes.get('/', questionsController.getAll);
 
-questionsRoutes.get('/:id', (req, res) => {
-  res.json({ "req": "Não tem" });
-});
+questionsRoutes.get('/:id', questionsController.get);
 
 questionsRoutes.post('/', questionsController.post);
 
-questionsRoutes.put('/:id', (req, res) => {
-  res.json({ "req": req.body });
-});
+questionsRoutes.put('/:id', questionsController.put);
+
+questionsRoutes.delete('/:id', questionsController.delete);
 
 module.exports = questionsRoutes;
