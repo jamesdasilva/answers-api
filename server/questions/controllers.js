@@ -30,6 +30,7 @@ questionsController.get = (req, res) => {
     Question
     .findById(req.params.id)
     .then((question) => {
+    question.answers.reverse(); 
     return res.status(200).json({
       success: true,
       data: question,
@@ -79,7 +80,7 @@ questionsController.getAll = (req, res) => {
   const limit = _limit ? Math.abs(_limit) : 2;
   const page = _page ? Math.abs(_page) - 1 : 0;
 
-  Question.countDocuments((err, count) => {
+  Question.countDocuments(query, (err, count) => {
     Question
       .find( query )
       .sort( ordination )
@@ -98,7 +99,6 @@ questionsController.getAll = (req, res) => {
     });
   })
 
-  
 }
 
 questionsController.postAnswer = (req, res) => {
