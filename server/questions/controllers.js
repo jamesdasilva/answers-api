@@ -1,48 +1,45 @@
 const Question = require('./models').Question;
 const Answer = require('./models').Answer;
 
+const createQuestion = require('./use-cases').createQuestion;
+const questionIsValid = require('./use-cases').questionIsValid;
+const questionHasId = require('./use-cases').questionHasId;
+
 const questionsController = {};
 
 questionsController.post = (req, res) => {
-  const {
-    text,
-    user,
-    likesCount,
-    creationDate,
-  } = req.body;
-
-  const question = new Question({
-    text,
-    user,
-    likesCount,
-    creationDate
-  });
-
-  question.save().then((newQuestion) => {
-    return res.status(200).json({
-      success: true,
-      data: newQuestion,
+  try {
+    if(!questionIsValid(req.body)) throw "O campo 'text' é obrigatório";
+    const question = new Question(createQuestion(req.body));
+    question.save().then((newQuestion) => {
+      return res.status(200).json({
+        success: true,
+        data: newQuestion,
+      });
     });
-  }).catch((err) => {
+  } catch (error) {
     return res.status(500).json({
-      message: err
+      success: false,
+      message: error
     });
-  });
+  }
 }
 
 questionsController.get = (req, res) => {
-  Question
+  try {
+    Question
     .findById(req.params.id)
     .then((question) => {
     return res.status(200).json({
       success: true,
       data: question,
     });
-  }).catch((err) => {
+  })
+  } catch (err) {
     return res.status(500).json({
       message: err
     });
-  });
+  };
 }
 
 questionsController.put = (req, res) => {
@@ -82,21 +79,26 @@ questionsController.getAll = (req, res) => {
   const limit = _limit ? Math.abs(_limit) : 2;
   const page = _page ? Math.abs(_page) - 1 : 0;
 
-  Question
-    .find( query )
-    .sort( ordination )
-    .limit( limit )
-    .skip( limit * page )
-    .then((questions) => {
-    return res.status(200).json({
-      success: true,
-      data: questions
+  Question.countDocuments((err, count) => {
+    Question
+      .find( query )
+      .sort( ordination )
+      .limit( limit )
+      .skip( limit * page )
+      .then((questions) => {
+      return res.status(200).json({
+        success: true,
+        length: count,
+        data: questions
+      });
+    }).catch((err) => {
+      return res.status(500).json({
+        message: err
+      });
     });
-  }).catch((err) => {
-    return res.status(500).json({
-      message: err
-    });
-  });
+  })
+
+  
 }
 
 questionsController.postAnswer = (req, res) => {
