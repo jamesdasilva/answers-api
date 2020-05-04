@@ -69,8 +69,21 @@ questionsController.delete = (req, res) => {
 }
 
 questionsController.getAll = (req, res) => {
-  const query = req.query.q ? { "text": { $regex: new RegExp(req.query.q), $options: 'i' } } : { };
-  Question.find(query).then((questions) => {
+  const { q, _sort, _order, _limit, _page} = req.query;
+
+  const query = q ? { "text": { $regex: new RegExp(q), $options: 'i' } } : { };
+  const sort = _sort ? _sort : 'creationDate';
+  const order = _order ? _order : 'desc';
+  const ordination = {}[sort] = order;
+  const limit = _limit ? Math.abs(_limit) : 2;
+  const page = _page ? _page : 0;
+
+  Question
+    .find( query )
+    .sort( ordination )
+    .limit( limit )
+    .skip( limit * page )
+    .then((questions) => {
     return res.status(200).json({
       success: true,
       data: questions
