@@ -76,7 +76,7 @@ questionsController.getAll = (req, res) => {
   const order = _order ? _order : 'desc';
   const ordination = {}[sort] = order;
   const limit = _limit ? Math.abs(_limit) : 2;
-  const page = _page ? _page : 0;
+  const page = _page ? Math.abs(_page) : 0;
 
   Question
     .find( query )
