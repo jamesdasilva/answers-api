@@ -1,7 +1,12 @@
-var seeder = require('mongoose-seed');
+const mongoose = require('mongoose');
 
 const Question = require('../server/questions/question-model').Question;
 const Answer = require('../server/questions/answer-model').Answer;
+
+const DBURI = 'mongodb://db:27017/desafio-bexs';
+const DBOptions = {
+  useNewUrlParser: true
+};
 
 var data = [
   {
@@ -40,7 +45,7 @@ var data = [
 ];
  
 function createSeed (req, res) { 
-  seeder.connect('mongodb://db:27017/desafio-bexs', function() {
+  mongoose.connect(DBURI, DBOptions, function() {
     Question.remove({}, function(err) { 
       const models = data.map((item) => new Question(item));
       Promise.all(models.map(item => item.save())).then((result) => {
@@ -54,7 +59,7 @@ function createSeed (req, res) {
 }
 
 function clearSeed (req, res) { 
-  seeder.connect('mongodb://db:27017/desafio-bexs', function() {
+  mongoose.connect(DBURI, DBOptions, function() {
     Question.remove({}, function(err) { 
       return res.status(200).json({
         success: true,
