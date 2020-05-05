@@ -1,0 +1,344 @@
+{
+	"id": "ca42e522-850c-de42-d062-882cb04558ce",
+	"name": "Desafio BEXS - API ENDPOINTS",
+	"description": "Enpoints REST do múdulo questions da api",
+	"order": [
+		"a21b08ee-14c8-dcd1-00bd-038fe749c765",
+		"5a454841-3ab3-4877-57f9-68cfa468f885",
+		"1a476823-897b-3063-1f6b-c1c21b152127",
+		"506436e7-8850-e904-2ccd-d43f19529015",
+		"2778ebc8-605c-dec0-9b06-0605b04f2b0d",
+		"db82634b-a522-28d3-ff8f-57646a9469f3",
+		"e69ff3d3-4ba8-7c6a-6b32-05fe071c638c",
+		"d8302d26-ec10-371b-e9fd-c669fb97c9b1",
+		"6435379b-e04a-1225-f1a6-840e4cfa670d",
+		"b3434be5-4454-3767-58fd-f4a20db2917d"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1588524453765,
+	"owner": "1657552",
+	"public": false,
+	"requests": [
+		{
+			"id": "1a476823-897b-3063-1f6b-c1c21b152127",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:9000/questions?q=test&_order=desc&_sort=likesCount",
+			"queryParams": [
+				{
+					"key": "q",
+					"value": "test",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "_order",
+					"value": "desc",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "_sort",
+					"value": "likesCount",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1588574948629,
+			"name": "[questions] Ordenar questões",
+			"description": "",
+			"collectionId": "ca42e522-850c-de42-d062-882cb04558ce",
+			"responses": []
+		},
+		{
+			"id": "2778ebc8-605c-dec0-9b06-0605b04f2b0d",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:9000/questions/5eaf26cd5373fd02ac4aaa97",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1588625832102,
+			"name": "[questions] Consultar questão por id",
+			"description": "",
+			"collectionId": "ca42e522-850c-de42-d062-882cb04558ce",
+			"responses": []
+		},
+		{
+			"id": "506436e7-8850-e904-2ccd-d43f19529015",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:9000/questions?_limit=2&_page=1&_sort=creationDate&_order=desc",
+			"queryParams": [
+				{
+					"key": "_limit",
+					"value": "2",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "_page",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "_sort",
+					"value": "creationDate",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "_order",
+					"value": "desc",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1588625828937,
+			"name": "[questions] Paginar questões",
+			"description": "",
+			"collectionId": "ca42e522-850c-de42-d062-882cb04558ce",
+			"responses": []
+		},
+		{
+			"id": "5a454841-3ab3-4877-57f9-68cfa468f885",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:9000/questions?q=test",
+			"queryParams": [
+				{
+					"key": "q",
+					"value": "test",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1588575032518,
+			"name": "[questions] Buscar questões por texto",
+			"description": "",
+			"collectionId": "ca42e522-850c-de42-d062-882cb04558ce",
+			"responses": []
+		},
+		{
+			"id": "6435379b-e04a-1225-f1a6-840e4cfa670d",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:9000/questions/5eaf26cd5373fd02ac4aaa97/answers",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1588628486667,
+			"name": "[answers] Criar resposta",
+			"description": "",
+			"collectionId": "ca42e522-850c-de42-d062-882cb04558ce",
+			"responses": [],
+			"rawModeData": "{\n    \"user\": \"nostrum resposta\",\n    \"text\": \"resposta de teste 44543 ...\"\n}"
+		},
+		{
+			"id": "a21b08ee-14c8-dcd1-00bd-038fe749c765",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:9000/questions",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "ca42e522-850c-de42-d062-882cb04558ce",
+			"data": null,
+			"dataMode": "params",
+			"name": "[questions] Listar questões",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1588524497818,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "b3434be5-4454-3767-58fd-f4a20db2917d",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:9000/questions/5eaf26cd5373fd02ac4aaa97/answers/5eb03b1413c7cd00a5b5a355",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1588625836609,
+			"name": "[answers] Editar resposta",
+			"description": "",
+			"collectionId": "ca42e522-850c-de42-d062-882cb04558ce",
+			"responses": [],
+			"rawModeData": "{\n    \"likesCount\": 409\n}"
+		},
+		{
+			"id": "d8302d26-ec10-371b-e9fd-c669fb97c9b1",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:9000/questions/5eaf0f991e051901a29e39b8",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1588605397566,
+			"name": "[questions] Apagar questão",
+			"description": "",
+			"collectionId": "ca42e522-850c-de42-d062-882cb04558ce",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
+			"id": "db82634b-a522-28d3-ff8f-57646a9469f3",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:9000/questions",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1588676518259,
+			"name": "[questions] Criar questão",
+			"description": "",
+			"collectionId": "ca42e522-850c-de42-d062-882cb04558ce",
+			"responses": [],
+			"rawModeData": "{\n    \"user\": \"nostrum12\",\n    \"text\": \"testando ... 4323123\"\n}"
+		},
+		{
+			"id": "e69ff3d3-4ba8-7c6a-6b32-05fe071c638c",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:9000/questions/5eb0814d23fd53032ceee1ee",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1588676522122,
+			"name": "[questions] Editar questão",
+			"description": "",
+			"collectionId": "ca42e522-850c-de42-d062-882cb04558ce",
+			"responses": [],
+			"rawModeData": "{\n    \"likesCount\": 0,\n    \"text\": \" ioioioo \"\n}"
+		}
+	]
+}
