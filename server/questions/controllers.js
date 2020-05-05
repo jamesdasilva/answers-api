@@ -1,5 +1,5 @@
-const Question = require('./models').Question;
-const Answer = require('./models').Answer;
+const Question = require('./question-model').Question;
+const Answer = require('./answer-model').Answer;
 
 const createQuestion = require('./use-cases').createQuestion;
 const questionIsValid = require('./use-cases').questionIsValid;

@@ -2,20 +2,27 @@ const express = require('express');
 
 const questionsController = require('./controllers');
 
+const createSeed = require('../../seed/seed').createSeed;
+const clearSeed = require('../../seed/seed').clearSeed;
+
 const questionsRoutes = express();
 
-questionsRoutes.get('/', questionsController.getAll);
+questionsRoutes.get('/questions', questionsController.getAll);
 
-questionsRoutes.get('/:id', questionsController.get);
+questionsRoutes.get('/questions/:id', questionsController.get);
 
-questionsRoutes.post('/', questionsController.post);
+questionsRoutes.post('/questions/', questionsController.post);
 
-questionsRoutes.put('/:id', questionsController.put);
+questionsRoutes.put('/questions/:id', questionsController.put);
 
-questionsRoutes.delete('/:id', questionsController.delete);
+questionsRoutes.delete('/questions/:id', questionsController.delete);
 
-questionsRoutes.post('/:questionId/answers', questionsController.postAnswer);
+questionsRoutes.post('/questions/:questionId/answers', questionsController.postAnswer);
 
-questionsRoutes.put('/:questionId/answers/:answerId', questionsController.putAnswer);
+questionsRoutes.put('/questions/:questionId/answers/:answerId', questionsController.putAnswer);
+
+questionsRoutes.post('/seed', createSeed);
+
+questionsRoutes.delete('/seed', clearSeed);
 
 module.exports = questionsRoutes;

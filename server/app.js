@@ -26,7 +26,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/questions', questionsRoutes);
+app.use('/api', questionsRoutes);
 
 app.get('/', (req, res) => {
   res.send('executando...');
