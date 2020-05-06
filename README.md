@@ -4,11 +4,11 @@ API REST de perguntas e respostas
 
 ### Pré-requisitos
 
-Para poder executar esta API, é necessário ter instalado o Docker e o Docker Compose 
+É necessário ter instalado o Docker e o Docker Compose 
 
 ### Iniciar aplicação
 
-Para iniciar a execução da API, executde o comando 
+Para iniciar a execução da API, execute o comando 
 ```
 npm run up
 ```
