@@ -1,5 +1,5 @@
 async function createAnswer(questionId, answersAtts, Question, Answer) {
-  if(!answersAtts.text) throw "O atributo 'text' é obrigatório";
+  if(!answersAtts.text) throw new Error("O atributo 'text' é obrigatório");
   const answer = new Answer({
     text: answersAtts.text,
     user: answersAtts.user || 'anonymous',

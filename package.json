@@ -4,7 +4,7 @@
   "description": "API de perguntas e respostas",
   "main": "./server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --passWithNoTests",
     "up": "sudo docker-compose up",
     "start": "nodemon -L --watch . ./server/index.js"
   },
@@ -26,5 +26,8 @@
     "mongoose": "^5.9.11",
     "nodemon": "^2.0.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jest": "^26.0.1",
+    "mongodb-memory-server": "^6.5.2"
+  }
 }

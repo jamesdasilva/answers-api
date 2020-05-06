@@ -9,12 +9,12 @@ answersController.postAnswer = async (req, res) => {
   const { text, user } = req.body;
   const { questionId } = req.params;
   try {
-    return res.status(200).json({
+    res.status(200).json({
       success: true,
       data: await createAnswer(questionId, { text, user }, Question, Answer)
     });
   } catch (error) {
-    return res.status(500).json({
+    res.status(500).json({
       success: false,
       message: error
     });
