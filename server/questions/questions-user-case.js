@@ -1,7 +1,7 @@
 const createQuestion = (questionAtts) => {
   const _question = { };
   _question.text = questionAtts.text ? questionAtts.text : '';
-  _question.user = questionAtts.user ? questionAtts.user : 'anonmous';
+  _question.user = questionAtts.user ? questionAtts.user : 'anonymous';
   _question.likesCount = 0;
   _question.creationDate = new Date();
 

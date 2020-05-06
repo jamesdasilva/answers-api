@@ -1,9 +1,8 @@
 const Question = require('./question-model').Question;
-const Answer = require('./answer-model').Answer;
 
-const createQuestion = require('./use-cases').createQuestion;
-const questionIsValid = require('./use-cases').questionIsValid;
-const questionHasId = require('./use-cases').questionHasId;
+const createQuestion = require('./questions-user-case').createQuestion;
+const questionIsValid = require('./questions-user-case').questionIsValid;
+const questionHasId = require('./questions-user-case').questionHasId;
 
 const questionsController = {};
 
@@ -98,73 +97,6 @@ questionsController.getAll = (req, res) => {
       });
     });
   })
-
 }
-
-questionsController.postAnswer = (req, res) => {
-  const {
-    text,
-    user,
-    likesCount,
-    creationDate
-  } = req.body;
-
-  const {
-    questionId
-  } = req.params;
-
-  const answer = new Answer({
-    text,
-    user,
-    likesCount,
-    creationDate
-  });
-
-  Question.findByIdAndUpdate(
-    questionId, 
-    { $push: { "answers": answer } },
-    { safe: true, upsert: true, new : true }).then((question) => {
-    return res.status(200).json({
-      success: true,
-      data: question
-    });
-  }).catch((err) => {
-    return res.status(500).json({
-      message: err
-    });
-  });
-
-}
-
-questionsController.putAnswer = (req, res) => {
-  const {
-    text,
-    user,
-    likesCount
-  } = req.body;
-
-  const {
-    questionId,
-    answerId
-  } = req.params;
-
-  Question.findById(questionId)
-  .then((question) => {
-    const answers = question.answers.id(answerId);
-    answers.likesCount = likesCount || answers.likesCount;
-    return question.save();
-  }).then((question) => {
-    return res.status(200).json({
-      success: true,
-      data: question.answers.id(answerId)
-    });
-  }).catch((err) => {
-    return res.status(500).json({
-      message: err
-    });
-  });
-
-}
-
 
 module.exports = questionsController;

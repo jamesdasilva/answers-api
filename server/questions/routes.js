@@ -1,6 +1,7 @@
 const express = require('express');
 
-const questionsController = require('./controllers');
+const questionsController = require('./questions-controller');
+const answersController = require('./answers-controller');
 
 const createSeed = require('../../seed/seed').createSeed;
 const clearSeed = require('../../seed/seed').clearSeed;
@@ -17,9 +18,9 @@ questionsRoutes.put('/questions/:id', questionsController.put);
 
 questionsRoutes.delete('/questions/:id', questionsController.delete);
 
-questionsRoutes.post('/questions/:questionId/answers', questionsController.postAnswer);
+questionsRoutes.post('/questions/:questionId/answers', answersController.postAnswer);
 
-questionsRoutes.put('/questions/:questionId/answers/:answerId', questionsController.putAnswer);
+questionsRoutes.put('/questions/:questionId/answers/:answerId', answersController.putAnswer);
 
 questionsRoutes.post('/seed', createSeed);
 

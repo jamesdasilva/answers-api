@@ -10,36 +10,39 @@ const DBOptions = {
 
 var data = [
   {
-    "user": "nome1",
+    "user": "user1",
     "likesCount": 0,
     "text": "Esta é uma pergunta de teste!",
-    "creationDate": "2020-05-05T14:40:38.368Z",
+    "creationDate": "2020-02-05T14:40:38.368Z",
     "answers": [{
-        "user": "nostrum resposta",
+        "user": "user5",
         "likesCount": 0,
-        "text": "resposta de teste 44543 ..."
+        "text": "Esta é uma resposta de teste.",
+        "creationDate": "2020-02-08T14:40:38.368Z",
     }]
   },
   {
-    "user": "nome2",
+    "user": "user2",
     "likesCount": 0,
     "text": "Esta é uma pergunta de teste!",
-    "creationDate": "2020-05-05T14:25:46.903Z",
+    "creationDate": "2020-05-07T14:25:46.903Z",
     "answers": [{
-      "user": "teste-name1",
+      "user": "user1",
       "likesCount": 0,
-      "text": "resposta de teste 44543 ..."
+      "text": "Esta é uma resposta de teste.",
+      "creationDate": "2020-05-09T14:25:46.903Z"
     }, {
-      "user": "teste-name2",
+      "user": "user1",
       "likesCount": 0,
-      "text": "resposta de teste 44543 ..."
+      "text": "Esta é uma resposta de teste.",
+      "creationDate": "2020-06-09T14:24:00.766Z"
     }]
   },
   {
-    "user": "nome3",
+    "user": "user3",
     "likesCount": 0,
-    "text": "Esta é uma pergunta de teste!",
-    "creationDate": "2020-05-05T14:24:00.766Z",
+    "text": "Esta é uma resposta de teste.",
+    "creationDate": "2020-01-09T14:24:00.766Z",
     "answers": []
   }
 ];

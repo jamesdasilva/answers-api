@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-
 const questionsRoutes = require('./questions/routes');
 
 const DBURI = 'mongodb://db:27017/desafio-bexs';
@@ -25,7 +24,6 @@ mongoose
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-
 app.use('/api', questionsRoutes);
 
 app.get('/', (req, res) => {
