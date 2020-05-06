@@ -8,7 +8,7 @@ API REST de perguntas e respostas
 
 ### Iniciar aplicação
 
-Para iniciar a execução da API, execute o comando 
+Para iniciar a execução da API, execute o comando
 ```
 npm run up
 ```
@@ -17,6 +17,13 @@ ou
 docker-compose up
 ```
 Com isso, o ambiente com Node e MongoDB será montado, as dependências da aplicação serão instaladas e o servidor será iniciado.
+
+### Testes
+
+Os testes são executados com o comando
+```
+npm run test
+```
 
 ### Seeds
 
